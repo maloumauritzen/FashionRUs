@@ -1,0 +1,16 @@
+---
+const { data } = Astro.props;
+---
+
+<article class="card">
+  <img
+    src=`https://kea-alt-del.dk/t7/images/webp/640/${data.id}.webp`
+    alt="product image"
+  />
+  <h3>{data.productdisplayname}</h3>
+  <p class="grey">Sweatshirts | Reebok</p>
+  <p>DKK 1595,-</p>
+  <div class="knap">
+    <a href="produkt.html">Læs mere</a>
+  </div>
+</article>
