@@ -2,9 +2,10 @@
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import ProductCard from "../components/ProductCard.astro";
-const data = await fetch("https://kea-alt-del.dk/t7/api/products").then((res) =>
-  res.json()
-);
+import Footer from "../components/Footer.astro";
+const data = await fetch(
+  "https://kea-alt-del.dk/t7/api/products?limit=100"
+).then((res) => res.json());
 console.log(data);
 ---
 
@@ -14,4 +15,5 @@ console.log(data);
   <section class="productList">
     {data.map((element) => <ProductCard data={element} />)}
   </section>
+  <Footer />
 </Layout>

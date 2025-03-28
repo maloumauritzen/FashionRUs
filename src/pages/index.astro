@@ -1,17 +1,19 @@
 ---
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
-import ProductCard from "../components/ProductCard.astro";
-const data = await fetch("https://kea-alt-del.dk/t7/api/products").then((res) =>
-  res.json()
-);
-console.log(data);
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
   <Header />
-  <h2>Produktliste</h2>
-  <section class="productList">
-    {data.map((element) => <ProductCard data={element} />)}
+  <h2>Categories</h2>
+  <section class="knap_container">
+    <a class="knap1" href="productlist.html">Accessories</a>
+    <a class="knap2" href="productlist.html">Apparel</a>
+    <a class="knap3" href="productlist.html">Footwear</a>
+    <a class="knap4" href="productlist.html">Free items</a>
+    <a class="knap5" href="productlist.html">Personal Care</a>
+    <a class="knap6" href="productlist.html">Sporting Goods</a>
   </section>
+  <Footer />
 </Layout>

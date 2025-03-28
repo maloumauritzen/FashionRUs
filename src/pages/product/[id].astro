@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch(
+    "https://kea-alt-del.dk/t7/api/products?limit=100"
+  ).then((response) => response.json());
+
+  return data.map((product) => {
+    return {
+      params: { id: product.id },
+      props: { product },
+    };
+  });
+}
+
+const { id } = Astro.params;
+const { product } = Astro.props;
+---
+
+<Layout>
+  <Header />
+  <main class="productContainer">
+    <article class="produkt_side">
+      <img
+        class="produkt_billede"
+        src=`https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`
+        alt="trøje"
+      />
+      <p class="produkt_tekst">
+        <b>{product.productdisplayname}</b><br />DKK {product.price},-<br /><b
+          >{product.usagetype}<br /></b
+        >
+
+        <div class="kurven_container">
+          <p class="kurven">Læg i kurven</p>
+        </div>
+      </p>`;
+    </article>
+  </main>
+  <Footer />
+</Layout>
