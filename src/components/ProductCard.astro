@@ -20,10 +20,9 @@ const { data } = Astro.props;
         </p>
       )
     }
+    <a class="read_more" href={`../product/${data.id}`}>Gå til produkt</a>
 
     {data.discount && <span class="tilbud">{data.discount}%</span>}
-
-    <a class="read_more" href="product.html">Gå til produkt</a>
   </article>
 </section>
 
